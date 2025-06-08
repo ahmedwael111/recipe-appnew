@@ -2,6 +2,7 @@ import 'package:day_night_switch/day_night_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipes_app_new/Features/home/presentation/views/setting_page.dart';
+import 'package:recipes_app_new/Features/home/presentation/views/splash_view.dart';
 import 'package:recipes_app_new/Features/home/presentation/views/widgets/costom_BottomNavigationBar.dart';
 import 'package:recipes_app_new/Features/home/presentation/views/widgets/home_widget.dart';
 import 'package:recipes_app_new/Features/search/presentation/view/search_view.dart';
@@ -38,6 +39,8 @@ class _HomeViewState extends State<HomeView> {
       appBar:
           _selectedIndex == 0
               ? AppBar(
+                automaticallyImplyLeading: false,
+
                 title: Row(
                   children: [
                     const Text(
@@ -60,9 +63,7 @@ class _HomeViewState extends State<HomeView> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => SettingPage(),
-                          ),
+                          MaterialPageRoute(builder: (context) => SplashPage()),
                         );
                       },
                       icon: Icon(Icons.settings, size: 32, color: kcolor),

@@ -7,77 +7,120 @@ import 'package:recipes_app_new/constants.dart';
 import 'package:recipes_app_new/core/models/one_mealModel.dart';
 
 class ShowenOfMeal extends StatefulWidget {
-  const ShowenOfMeal({
-    super.key,
-  });
+  const ShowenOfMeal({super.key});
 
   @override
   State<ShowenOfMeal> createState() => _ShowenOfMealState();
 }
 
 class _ShowenOfMealState extends State<ShowenOfMeal> {
-  OneMealModel? oneMealModel;
   @override
   Widget build(BuildContext context) {
-    setState(() {
-      oneMealModel = BlocProvider.of<OneMealCubit>(context).oneMealModel!;
-    });
+    final oneMealModel = BlocProvider.of<OneMealCubit>(context).oneMealModel!;
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        body: Column(
-          children: [
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(18),
-                  child: Image.network(oneMealModel!.image,
-                      height: 250, width: double.infinity, fit: BoxFit.cover,
+        body: NestedScrollView(
+          headerSliverBuilder:
+              (context, innerBoxIsScrolled) => [
+                SliverAppBar(
+                  expandedHeight: 300,
+                  pinned: true,
+                  floating: true,
+                  backgroundColor: kcolor,
+                  elevation: 0,
+                  leading: IconButton(
+                    icon: const Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Colors.white,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+
+                  flexibleSpace: FlexibleSpaceBar(
+                    title: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(
+                        oneMealModel.title,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          // overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                    background: Image.network(
+                      oneMealModel.image,
+                      fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
-                    // Replace with your own placeholder asset or network URL
-                    return Image.asset(
-                        'assets/webvilla-hv1MrBzGGNY-unsplash.jpg',
-                        height: 250,
-                        width: double.infinity,
-                        fit: BoxFit.cover);
-                  }),
+                        return Image.asset(
+                          'assets/webvilla-hv1MrBzGGNY-unsplash.jpg',
+                          fit: BoxFit.fitWidth,
+                        );
+                      },
+                    ),
+                    centerTitle: true,
+                  ),
+                ),
+                SliverPersistentHeader(
+                  pinned: true,
+                  delegate: _SliverAppBarDelegate(
+                    const TabBar(
+                      indicatorColor: kcolor,
+
+                      indicatorWeight: 5,
+                      labelColor: kcolor,
+                      labelStyle: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      tabs: [
+                        Tab(text: 'Information'),
+                        Tab(text: 'Ingradiants'),
+                        Tab(text: 'Instractions'),
+                      ],
+                    ),
+                  ),
                 ),
               ],
-            ),
-            ListTile(
-              title: Text(
-                oneMealModel!.title,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const Divider(),
-            const TabBar(
-                indicatorColor: kcolor,
-                indicatorWeight: 5,
-                labelColor: kcolor,
-                labelStyle:
-                    TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-                tabs: [
-                  Tab(
-                    text: 'Information',
-                  ),
-                  Tab(
-                    text: 'Ingradiants',
-                  ),
-                  Tab(
-                    text: 'Instractions',
-                  )
-                ]),
-            // TabBarView wrapped in a fixed height container to display content
-            CoustomTabbarView(
-              oneMealModel: oneMealModel!,
-            ),
-          ],
+          body: CoustomTabbarView(oneMealModel: oneMealModel),
         ),
       ),
     );
+  }
+}
+
+// Helper class for SliverPersistentHeader
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  final TabBar tabBar;
+
+  _SliverAppBarDelegate(this.tabBar);
+
+  @override
+  double get minExtent => tabBar.preferredSize.height;
+  @override
+  double get maxExtent => tabBar.preferredSize.height;
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return Container(
+      color:
+          Theme.of(context).brightness == Brightness.light
+              ? Colors.white
+              : Colors.black12, // Set background color for the tab bar
+      child: tabBar,
+    );
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return false;
   }
 }
