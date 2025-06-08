@@ -4,9 +4,7 @@ import 'package:recipes_app_new/Features/search/presentation/view/search_view.da
 import 'package:recipes_app_new/constants.dart';
 
 class CostomTextfield extends StatelessWidget {
-  const CostomTextfield({
-    super.key,
-  });
+  const CostomTextfield({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class CostomTextfield extends StatelessWidget {
         Navigator.pushNamed(context, SearchView.id);
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         child: TextField(
           enabled: false, // Disable text editing
           decoration: InputDecoration(

@@ -48,7 +48,7 @@ class _SecondCategoryslistviewState extends State<SecondCategoryslistview> {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
         children: [
-          const CoutomHeadOfCategoriewList(mainText: 'Other Fames Dishs'),
+          const CoutomHeadOfCategoriewList(mainText: 'Fames Dishs'),
           SizedBox(
             height: 140,
             child: ListView.builder(

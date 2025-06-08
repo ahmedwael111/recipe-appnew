@@ -38,7 +38,7 @@ class CostomBottomNavigationBar extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           selectedItemColor: kcolor,
           unselectedItemColor: Colors.grey,
-          iconSize: 28.0,
+          iconSize: 25.0,
           selectedFontSize: 14.0,
           unselectedFontSize: 12.0,
           items: const [
@@ -51,7 +51,7 @@ class CostomBottomNavigationBar extends StatelessWidget {
               label: 'Search',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: Icon(FontAwesomeIcons.gear),
               label: 'Settings',
             ),
           ],

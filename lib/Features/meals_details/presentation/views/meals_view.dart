@@ -24,12 +24,15 @@ class MealsView extends StatelessWidget {
             Text(
               name,
               style: const TextStyle(
-                  color: kcolor, fontWeight: FontWeight.bold, fontSize: 26),
+                color: kcolor,
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+              ),
             ),
             const Text(
               ' Dishs',
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-            )
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),
@@ -40,7 +43,7 @@ class MealsView extends StatelessWidget {
           } else if (state is RequestMealsLoading) {
             return const Indicator();
           } else if (state is RequestMealsSuccess) {
-            return   GradOfMeal();
+            return GradOfMeal();
           } else if (state is RequestMealsFaluier) {
             return const MessageOfNoInterNet();
           } else {
@@ -53,28 +56,19 @@ class MealsView extends StatelessWidget {
 }
 
 class InitialIcon extends StatelessWidget {
-  const InitialIcon({
-    super.key,
-  });
+  const InitialIcon({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(
-          FontAwesomeIcons.searchengin,
-          size: 55,
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          'Let\'s Search for Meals',
-          style: TextStyle(fontSize: 18),
-        )
-      ],
-    ));
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(FontAwesomeIcons.searchengin, size: 55),
+          SizedBox(height: 20),
+          Text('Let\'s Search for Meals', style: TextStyle(fontSize: 18)),
+        ],
+      ),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:day_night_switch/day_night_switch.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipes_app_new/constants.dart';
@@ -24,10 +25,11 @@ class _SettingPageState extends State<SettingPage> {
             leading: const Icon(Icons.dark_mode),
             title: const Text('Dark Mode'),
             trailing: Transform.scale(
-              scale: 0.4,
+              scale: 0.35,
               child: BlocBuilder<ThemeCubitCubit, ThemeData>(
                 builder: (context, themeState) {
                   return DayNightSwitch(
+                    // dragStartBehavior: DragStartBehavior.start,
                     value: themeState.brightness == Brightness.dark,
                     dayColor: kcolor,
                     nightColor: Colors.black,

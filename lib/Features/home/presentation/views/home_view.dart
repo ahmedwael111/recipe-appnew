@@ -18,7 +18,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   int _selectedIndex = 0;
-  
 
   // List of views (screens) corresponding to each tab in the BottomNavigationBar
   final List<Widget> _views = [
@@ -66,7 +65,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         );
                       },
-                      icon: Icon(Icons.settings, size: 35, color: kcolor),
+                      icon: Icon(Icons.settings, size: 32, color: kcolor),
                     ),
                   ],
                 ),

@@ -14,7 +14,7 @@ class HomeWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        SizedBox(height: 60, child: CostomTextfield()),
+        SizedBox(height: 50, child: CostomTextfield()),
         SizedBox(height: 200, child: Carousel()),
         Categoryslistview(),
         SecondCategoryslistview(),
