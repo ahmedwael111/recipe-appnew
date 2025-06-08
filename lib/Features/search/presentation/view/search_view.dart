@@ -20,25 +20,31 @@ class _SearchViewState extends State<SearchView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leadingWidth: 0,
-        title: const SizedBox(height: 55, child: C2Textfield()),
-      ),
-      body: BlocBuilder<RequestMealsCubit, RequestMealsState>(
-        builder: (context, state) {
-          if (state is RequestMealsInitial) {
-            return const InitialIcon();
-          } else if (state is RequestMealsLoading) {
-            return const Indicator();
-          } else if (state is RequestMealsSuccess) {
-            return GradOfMeal();
-          } else if (state is RequestMealsFaluier) {
-            return const MessageOfNoInterNet();
-          } else {
-            return const Center(child: Text('try again'));
-          }
-        },
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(height: 16),
+            const SizedBox(height: 55, child: C2Textfield()),
+            const SizedBox(height: 16),
+            Expanded(
+              child: BlocBuilder<RequestMealsCubit, RequestMealsState>(
+                builder: (context, state) {
+                  if (state is RequestMealsInitial) {
+                    return const InitialIcon();
+                  } else if (state is RequestMealsLoading) {
+                    return const Indicator();
+                  } else if (state is RequestMealsSuccess) {
+                    return GradOfMeal();
+                  } else if (state is RequestMealsFaluier) {
+                    return const MessageOfNoInterNet();
+                  } else {
+                    return const Center(child: Text('try again'));
+                  }
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

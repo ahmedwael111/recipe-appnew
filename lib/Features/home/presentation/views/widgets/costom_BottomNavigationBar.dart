@@ -14,25 +14,49 @@ class CostomBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-        onTap: onItemTapped,
-        currentIndex: selectedIndex,
-        type:
-            BottomNavigationBarType.fixed, // Keeps items fixed, avoids shifting
-        selectedItemColor: kcolor, // Color for selected item
-        unselectedItemColor: Colors.grey, // Color for unselected items
-        iconSize: 28.0, // Size of icons
-        selectedFontSize: 14.0,
-        unselectedFontSize: 12.0,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.house),
-            label: 'Home',
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color:
+                Theme.of(context).brightness == Brightness.dark
+                    ? Colors.grey[800]!
+                    : Colors.black26,
+            blurRadius: 10,
+            offset: Offset(0, -2), // Shadow upwards
           ),
-          BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.magnifyingGlass),
-            label: 'Search',
-          )
-        ]);
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(24),
+          topRight: Radius.circular(24),
+        ),
+        child: BottomNavigationBar(
+          onTap: onItemTapped,
+          currentIndex: selectedIndex,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: kcolor,
+          unselectedItemColor: Colors.grey,
+          iconSize: 28.0,
+          selectedFontSize: 14.0,
+          unselectedFontSize: 12.0,
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.house),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(FontAwesomeIcons.magnifyingGlass),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
