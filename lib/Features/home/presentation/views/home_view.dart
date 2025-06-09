@@ -66,7 +66,7 @@ class _HomeViewState extends State<HomeView> {
                           MaterialPageRoute(builder: (context) => SplashPage()),
                         );
                       },
-                      icon: Icon(Icons.settings, size: 32, color: kcolor),
+                      icon: Icon(Icons.menu, size: 32, color: kcolor),
                     ),
                   ],
                 ),

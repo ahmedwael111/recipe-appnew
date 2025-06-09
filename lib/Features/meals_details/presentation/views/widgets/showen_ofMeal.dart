@@ -29,19 +29,19 @@ class _ShowenOfMealState extends State<ShowenOfMeal> {
                   floating: true,
                   backgroundColor: kcolor,
                   elevation: 0,
-                  leading: IconButton(
-                    icon: const Icon(
-                      Icons.arrow_back_ios_new,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-
+                  automaticallyImplyLeading: false,
+                  // leading: IconButton(
+                  //   icon: const Icon(
+                  //     Icons.arrow_back_ios_new,
+                  //     color: Colors.white,
+                  //   ),
+                  //   onPressed: () {
+                  //     Navigator.pop(context);
+                  //   },
+                  // ),
                   flexibleSpace: FlexibleSpaceBar(
                     title: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.only(left: 8),
                       child: Text(
                         oneMealModel.title,
                         style: const TextStyle(
@@ -74,7 +74,7 @@ class _ShowenOfMealState extends State<ShowenOfMeal> {
                       indicatorWeight: 5,
                       labelColor: kcolor,
                       labelStyle: TextStyle(
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                       tabs: [

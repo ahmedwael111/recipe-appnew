@@ -16,17 +16,17 @@ class SecondCategoryslistview extends StatefulWidget {
 class _SecondCategoryslistviewState extends State<SecondCategoryslistview> {
   final List<CardModel> cardModels2 = [
     CardModel(
-      image: 'assets/sec_1.jpg', // Pizza image
+      image: 'assets/sec_3.jpg', // Pizza image
       name: 'Pizza',
       time: '20 mins',
     ),
     CardModel(
-      image: 'assets/sec_2.jpg', // Pasta image
+      image: 'assets/sec_5.jpg', // Pasta image
       name: 'Pasta',
       time: '30 mins',
     ),
     CardModel(
-      image: 'assets/sec_3.jpg', // Burger image
+      image: 'assets/sec_1.jpg', // Burger image
       name: 'Burger',
       time: '25 mins',
     ),
@@ -36,7 +36,7 @@ class _SecondCategoryslistviewState extends State<SecondCategoryslistview> {
       time: '15 mins',
     ),
     CardModel(
-      image: 'assets/sec_5.jpg', // Steak image
+      image: 'assets/sec_2.jpg', // Steak image
       name: 'Steak',
       time: '45 mins',
     ),

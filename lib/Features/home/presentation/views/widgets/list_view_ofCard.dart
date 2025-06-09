@@ -14,27 +14,27 @@ class Categoryslistview extends StatefulWidget {
 class _CategoryslistviewState extends State<Categoryslistview> {
   final List<CardModel> cardModels = [
     CardModel(
-      image: 'assets/main_1.jpg', // Breakfast image
+      image: 'assets/main_3.jpg', // Breakfast image
       name: 'Breakfast',
       time: '15 mins',
     ),
     CardModel(
-      image: 'assets/main_2.jpg', // Lunch image
+      image: 'assets/main_4.jpg', // Lunch image
       name: 'Lunch',
       time: '30 mins',
     ),
     CardModel(
-      image: 'assets/main_3.jpg', // Dinner image
+      image: 'assets/main_5.jpg', // Dinner image
       name: 'Dinner',
       time: '45 mins',
     ),
     CardModel(
-      image: 'assets/main_4.jpg', // Snacks image
+      image: 'assets/main_2.jpg', // Snacks image
       name: 'Snacks',
       time: '10 mins',
     ),
     CardModel(
-      image: 'assets/main_5.jpg', // Dessert image
+      image: 'assets/main_1.jpg', // Dessert image
       name: 'Dessert',
       time: '20 mins',
     ),
